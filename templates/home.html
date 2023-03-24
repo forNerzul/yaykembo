@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="h-full bg-white" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://kit.fontawesome.com/c45d654603.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Home</title>
+    </head>
+    <body class="h-full">
+        <div class="flex min-h-full">
+            <div
+                class="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
+            >
+                <div class="mx-auto w-full max-w-sm lg:w-96">
+                    <div>
+                        <i
+                            class="fa-solid fa-hand-middle-finger h-12 w-auto text-[5.6em]"
+                        ></i>
+                        <h2
+                            class="mt-6 text-3xl font-bold tracking-tight text-gray-900"
+                        >
+                            Welcome to Yaykembo AI!
+                        </h2>
+                        <p class="mt-2 text-sm text-gray-600">
+                            This is a disruptive technology that will change the
+                            world as we know it. Enough with the fuss, we all
+                            know that Manudog bites the pillow.
+                        </p>
+                    </div>
+
+                    <div class="mt-8">
+                        <div class="mt-6">
+                            <form
+                                action="{{url_for('home')}}"
+                                method="POST"
+                                class="space-y-6"
+                            >
+                                <div>
+                                    <label
+                                        for="username"
+                                        class="block text-sm font-medium leading-6 text-gray-900"
+                                        >Your Name</label
+                                    >
+                                    <div class="mt-2">
+                                        {{form.username(class="block w-full
+                                        rounded-md border-0 py-1.5 shadow-sm
+                                        ring-1 ring-inset ring-gray-300
+                                        placeholder:text-gray-400 focus:ring-2
+                                        focus:ring-inset focus:ring-indigo-600
+                                        sm:text-sm sm:leading-6 px-2")}}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button
+                                        type="submit"
+                                        class="flex w-full justify-center rounded-md bg-[#28B4E5] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    >
+                                        Take me to the damn game
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative hidden w-0 flex-1 lg:block">
+                <img
+                    class="absolute inset-0 h-full w-full object-cover"
+                    src="{{ url_for('static', filename='images/piedrapapeltijera.jpg') }}"
+                    alt=""
+                />
+            </div>
+        </div>
+    </body>
+</html>
