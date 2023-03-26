@@ -4,8 +4,9 @@ import random
 class Jugador():
     jugadas = ['piedra', 'papel', 'tijera']
     puntaje = 0
-    def __init__ (self, nombre):
+    def __init__ (self, nombre, desicion):
         self.nombre = nombre
+        self.desicion = desicion
 
     def tomar_desicion(self):
         while True:
@@ -35,7 +36,7 @@ class Juego():
         print(f'Batalla: {self.jugador1.nombre} vs {self.jugador2.nombre}')
 
     def jugar(self):
-        desicion1 = self.jugador1.tomar_desicion()
+        desicion1 = self.jugador1.desicion
         desicion2 = self.jugador2.tomar_desicion()
         desiciones = [desicion1, desicion2]
 
@@ -46,10 +47,16 @@ class Juego():
         } 
 
         if desiciones[0] == desiciones[1]:
+            resultado = f'Empate ambos eligieron {desiciones[0]}'
             print(f"Empate ambos eligieron {desiciones[0]}")
+            return resultado
         elif desiciones in desicion.values():
             self.jugador1.puntaje += 1
+            resultado = f"Gana {self.jugador1.nombre} por que eligio {desiciones[0]} y {self.jugador2.nombre} eligio {desiciones[1]}"
             print(f"Gana {self.jugador1.nombre} por que eligio {desiciones[0]} y {self.jugador2.nombre} eligio {desiciones[1]}")
+            return resultado
         else:
             self.jugador2.puntaje += 1
+            resultado = f"Gana {self.jugador2.nombre} por que eligio {desiciones[1]} y {self.jugador1.nombre} eligio {desiciones[0]}"
             print(f"Gana {self.jugador2.nombre} por que eligio {desiciones[1]} y {self.jugador1.nombre} eligio {desiciones[0]}")
+            return resultado
